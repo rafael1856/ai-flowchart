@@ -1,0 +1,43 @@
+ digraph {
+ node_[shape="box" textwidth=4.5 style="filled, roundaged=0.25, fillcolor=#B8CSE8"]
+
+ analize_[label="analize(data, mdl=<f0>mdl<f0>, prompt=<f0>PROMPT<f0>)"]
+ analize_[shape="diamond"]
+
+ data_[label="data"]
+ data_[fillcolor="#ADD8E6"]
+ data_[style="filled, roundaged=0.25"]
+
+ mdl_[label="mdl"]
+ mdl_[fillcolor="#FFF0F5"]
+ mdl_[style="filled, roundaged=0.25"]
+
+ result_[label="result"]
+ result_[shape="record"]
+ result_[fillcolor="#F9D2D0"]
+ result_[style="filled, roundaged=0.25"]
+
+ start_time_[label="start\_time = time.time()"]
+ start_time_[shape="diamond"]
+
+ end_time_[label="end\_time = time.time()"]
+ end_time_[shape="diamond"]
+
+ save_[label="save\_results(result, filename, model\_name)"]
+ save_[shape="rectangle"]
+ save_[fillcolor="#C1F0C1"]
+ save_[style="filled, roundaged=0.25"]
+
+ generate_[label="generate\_drawio(result, drawio\_file)"]
+ generate_[shape="rectangle"]
+ generate_[fillcolor="#D9E6F7"]
+ generate_[style="filled, roundaged=0.25"]
+
+ data_ -> analize_
+ analize_ -> result_
+ analize_ -> start_time_
+ result_ -> save_
+ result_ -> generate_
+ start_time_ -> analize_
+ end_time_ -> analize_
+}

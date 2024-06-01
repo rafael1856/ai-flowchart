@@ -1,0 +1,35 @@
+digraph {
+node[shape=box, style=filled];
+"analize" -> "ollama.chat";
+"save_results" -> "print";
+"generate_drawio" -> "doc.createElement";
+"generate_drawio" -> "graph_element.appendChild";
+"main" -> "analize";
+"main" -> "save_results";
+"main" -> "generate_drawio";
+"ollama" -> "chat";
+"chat" -> "model";
+"chat" -> "messages";
+"messages" -> "role";
+"messages" -> "content";
+"prompt" -> "system";
+"prompt" -> "content";
+"data" -> "user";
+"data" -> "content";
+"response" -> "message";
+"response" -> "content";
+"message" -> "content";
+"ollama.chat" -> "model";
+"ollama.chat" -> "messages";
+"ollama.chat" -> "response";
+"save_results" -> "filename";
+"save_results" -> "model_name";
+"generate_drawio" -> "dot_file";
+"generate_drawio" -> "drawio_file";
+"main" -> "sys.argv[1]";
+"main" -> "extension";
+"main" -> "filename";
+"main" -> "data";
+"main" -> "list_models";
+"main" -> "mdl";
+}

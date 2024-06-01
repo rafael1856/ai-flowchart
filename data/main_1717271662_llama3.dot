@@ -1,0 +1,21 @@
+digraph {
+node[shape=box];
+
+"import os" -> "analize";
+"import sys" -> "analize";
+"import time" -> "analize";
+"import ollama" -> "analize";
+"import pygraphviz as pgv" -> "generate_drawio";
+"from xml.dom.minidom import Document" -> "generate_drawio";
+
+"MODEL1" -> "analize" [label="model"];
+"MODEL2" -> "analize" [label="model"];
+
+"PROMPT" -> "analize" [label="prompt"];
+
+"analize" -> "save_results";
+"save_results" -> "generate_drawio";
+
+"main" -> "analize" [label="data"];
+"main" -> "generate_drawio" [label="result"];
+}
