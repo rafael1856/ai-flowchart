@@ -32,19 +32,24 @@ It generates a summary for an interview transcript.
 
 
 ## Quick start
-For testing porpuses go to a web site with an interview transcript, download the interview as sample.txt (text file). 
 
-Convert the text file in a json format running:
-python src/convert-text-interview-2-json.py sample.txt
+Then run the dot flowchart generator:
+./start.sh <path to your file>
 
-It will generate sample.json
+example: 
+./start.sh src/main.py
 
-Then run the analizer:
-./start.sh
+The result will be two files, one per model in the data folder with format:
+name_python_file-epochtimestamp-model_name.dot
 
-The result will be as screen output showing 2 analisis:
-1) the result of using the ollama system call
-2) the result of using the ollama API call
+    main_1717269909_llama3.dot
+    main_1717271662_mistral.dot
+
+# Run from other folders
+python path_to_ai-flowchart/src/main.py <your_file_to_dottify>
+example:
+python ~/dev/projects/ai-flowchart/src/main.py ~/dev/projects/ai-chatsql/docs/Application-Flow.txt
+
 
 ## Requirements
 
@@ -63,58 +68,4 @@ source bin/setup-conda.sh
 ## Upcoming Features
 
 * Allow to pass model via arguments
-* Automate downloading interview from a url
-* Provide an user interface (flask?)
-
-
-test: get a summary from a 2 person interviews
-    The source files must be in semi-json format:
-
-also could summarize or do other tasks with text files.
-The tooling that is used is:
-
-[Ollama](https://ollama.com/)
-   
-model: llama3
-
-It takes data transcribed from a meeting with format (list of json)
-[
-  {
-    "speaker": "Alice",
-    "text": "Good morning everyone, thanks for joining today's meeting."
-  },
-  {
-    "speaker": "Bob",
-    "text": "Morning, Alice. What's on the agenda for today?"
-  }
-]
-
-Use a python program to convert a text interview from 
-
-Then, it is fed to the ollama model to produce a summary. 
-'''
-It can do analisys changing the prompt
-     prompt = """Your goal is to summarize the text that is given to you 
-     in roughly 300 words. It is from a meeting between one or more people. 
-     Only output the summary without any additional text. 
-     Focus on providing a summary in freeform text with a summary of what 
-     people said and the action items coming out of it."""
-'''
-
-TODO: automatize prompt change ?
-
-TODO: diagram
-
-Install
-
-create enviroment
-conda create --name my_enviroment_name -y
-
-activate
-conda activate my_enviroment_name
-
-run
-pip install -r requierments
-
-run
-python main.py
+* Provide an user interface (flask)

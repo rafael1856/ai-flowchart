@@ -27,7 +27,13 @@ def analize(data, mdl=MODEL1, prompt=PROMPT):
 def save_results(result, filename, model_name):
     epoch_time = str(int(time.time()))
     base_filename = os.path.basename(filename)
-    new_filename = f"data/{base_filename.split('.')[0]}_{epoch_time}_{model_name}.dot"
+
+    if os.path.isdir("data"):
+        folder = "data"
+    else:
+        folder = "."
+    new_filename = f"{folder}/{base_filename.split('.')[0]}_{epoch_time}_{model_name}.dot"
+
     with open(new_filename, "w") as f:
         f.write(result)
     print(f"Results saved to {new_filename}")

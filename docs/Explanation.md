@@ -1,7 +1,6 @@
 This Python program is designed to analyze Python code or text files, convert their structure into a DOT format suitable for visualization with Graphviz, and then generate a corresponding DRAWIO file for further editing or visualization. It uses two AI models (`ollama` and `mistral`) to perform the analysis based on prompts. Here's a step-by-step explanation of how it works:
 
-
-![SVG Image](main_1717271662_llama3.png)
+![PNG Image](explanation.png)
 
 
 ### Import Statements
@@ -38,5 +37,6 @@ This Python program is designed to analyze Python code or text files, convert th
 ### Execution Flow
 - When run directly (not imported as a module), the `main` function is executed.
 - This function processes the command-line arguments, validates the input file, reads its contents, analyzes it using one of the AI models, generates DOT and DRAWIO files, and prints relevant information about the process.
+
 
 Overall, this program automates the process of analyzing Python code or text files, visualizing their structure using AI-driven analysis, and exporting the results in formats suitable for further processing or visualization.
